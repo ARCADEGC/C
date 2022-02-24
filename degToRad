@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <math.h>
+
+float degToRad(float x){
+    x = x * 0.0174532925;
+    return x;
+}
+
+float radToDeg(float x){
+    x = x / 0.0174532925;
+    return x;
+}
+
+
+
+int main(){
+    for(float i = 0; i <= 360; i += 30){
+        printf("úhel[%.0fst]; úhel[%.11frad]; sin %.11f; cos %.11f \n", i, degToRad(i), sin(degToRad(i)), cos(degToRad(i)));
+    }
+    return 0;
+}
