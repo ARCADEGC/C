@@ -1,0 +1,13 @@
+#include <stdio.h>
+#include <math.h>
+
+float S(float c){
+    float b =(c*sin(0.785));
+    float a =sqrt(pow(c, 2)-pow(b, 2));
+    float S = (a*b)/2.;
+    return S;
+}
+
+int main() {
+    printf("S = %.2f", S(8.4));
+}
