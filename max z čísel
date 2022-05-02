@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int max(int *cisla, int n){
+    int max = *cisla;
+    for(int i = 1; i < n; i++)
+    {
+        if(max < *(cisla + i))
+        {
+            max = *(cisla + i);
+        }
+    }
+    return max;
+}
+
+int main() {
+    int numeros[] = {1,5,8,16,3,4,9,87};
+    printf("%i", max(numeros, sizeof(numeros) / 4));
+    return 0;
+}
