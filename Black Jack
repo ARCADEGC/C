@@ -3,6 +3,11 @@
 #include <time.h>
 #include <math.h>
 
+int opponent(){
+    int r = (rand() % 8) + 18;
+    return r;
+}
+
 int value(){
     int r = (rand() % 13) + 1;
     if(r == 1){
@@ -36,8 +41,9 @@ int color(){
 
 int main() {
     srand(time(NULL));
+    int OP = opponent();
     
-    for(int i = 0; i <= 40; i++){
+    for(int i = 0; i <= 1; i++){
         int C = color();
         int F = value();
         if(F == 65 || F == 74 || F == 81 || F == 75){
@@ -47,6 +53,8 @@ int main() {
             printf("%i of %c\n", F, C);
         }
     }
+    
+    printf("%i", OP);
     
     return 0;
 }
