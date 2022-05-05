@@ -3,13 +3,30 @@
 #include <time.h>
 #include <math.h>
 
+
+
 int value(){
-    int r = rand() % 13;
+    int r = (rand() % 13) + 1;
     return r;
 }
 
+
+
 int color(){
-    int r = rand() % 4;
+    char B;
+    int r = (rand() % 4) + 1;
+    if(r == 1){
+        return B = 83;
+    }
+    if(r == 2){
+        return B = 72;
+    }
+    if(r == 3){
+        return B = 67;
+    }
+    if(r == 4){
+        return B = 68;
+    }
     return r;
 }
 
@@ -18,9 +35,31 @@ int color(){
 int main() {
     srand(time(NULL));
     
-    for(int i = 0; i <= 20; i++){
-        printf("%i of %i\n", value(), color());    
+    for(int i = 0; i <= 40; i++){
+        
+        int F = value();
+        if(F == 1){
+           printf("A of %c\n", color());
+           continue;
+        }
+        else{
+            if(F == 11){
+                printf("J of %c\n", color());
+            }
+            else{
+                if(F == 12){
+                    printf("Q of %c\n", color());
+                }
+                else{
+                    if(F == 13){
+                        printf("K of %c\n", color());
+                    }
+                    else{
+                       printf("%i of %c\n", F, color()); 
+                    }
+                }
+            }
+        }
     }
-    
     return 0;
 }
