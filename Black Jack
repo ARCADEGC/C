@@ -4,57 +4,79 @@
 #include <math.h>
 
 int opponent(){
-    int r = (rand() % 8) + 18;
+    int r = (rand() % 8) + 15;
     return r;
 }
 
 int value(){
     int r = (rand() % 13) + 1;
-    if(r == 1){
-        return r = 65;
-    }
-    if(r == 11){
-        return r = 74;
-    }
-    if(r == 12){
-        return r = 81;
-    }
-    if(r == 13){
-        return r = 75;
-    }
+    
+    switch(r){
+        case 1: return r = 65;
+        case 10: return r = 88;
+        case 11: return r = 74;
+        case 12: return r = 81;
+        case 13: return r = 75;
+        }
     return r;
 }
 
 int color(){
     int r = (rand() % 4) + 1;
-    if(r == 1){
-        return r = 83;
-    }
-    if(r == 2){
-        return r = 72;
-    }
-    if(r == 3){
-        return r = 67;
-    }
+     
+    switch(r){
+        case 1: return r = 83;
+        case 2: return r = 72;
+        case 3: return r = 67;
+        }
     return r = 68;
 }
 
+int c_back_to_n(int x){
+    switch(x){
+        case 83: return x = 1;
+        case 72: return x = 2;
+        case 67: return x = 3;
+        case 68: return x = 4;
+        default: return x;
+    }
+}
+
+int f_back_to_n(int y){
+    switch(y){
+        case 65: return y = 1;
+        case 88: return y = 10;
+        case 74: return y = 11;
+        case 81: return y = 12;
+        case 75: return y = 13;
+        default: return y;
+    }
+}
+
 int main() {
+    int deck[4][13] = {0};
     srand(time(NULL));
-    int OP = opponent();
     
-    for(int i = 0; i <= 1; i++){
+    for(int i = 0; i <= 51; i++){
         int C = color();
         int F = value();
-        if(F == 65 || F == 74 || F == 81 || F == 75){
-            printf("%c of %c\n", F, C);
+        
+        if(deck[c_back_to_n(C)][f_back_to_n(F)]==0){
+            if(F == 65 ||F == 88 || F == 74 || F == 81 || F == 75){
+                printf("%c of %c\n", F, C);
+                deck[c_back_to_n(C)][f_back_to_n(F)] = 1;
+            }
+            else{
+                printf("%i of %c\n", F, C);
+                deck[c_back_to_n(C)][f_back_to_n(F)] = 1;
+            }
         }
         else{
-            printf("%i of %c\n", F, C);
+            i--;
         }
     }
     
-    printf("%i", OP);
+    printf("%i", opponent());
     
     return 0;
 }
