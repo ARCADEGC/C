@@ -1,7 +1,9 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include <math.h>
+#include <string.h>
 
 int opponent(){
     int r = (rand() % 8) + 15;
@@ -54,37 +56,63 @@ int f_back_to_n(int y){
 }
 
 int main() {
+    char ans = '\0';
+    char A = '\0';
+    int w = 1;
     printf("\n\n\t\t\t || Welcome to Black Jack ||\n\n");
     int deck[4][13];
-    
     for(int four = 0; four < 4; four++){
         for(int thirteen = 0; thirteen < 13; thirteen++){
             deck[four][thirteen] = 0;
         }
     }
-    
     srand(time(NULL));
     
-    for(int i = 0; i <= 10; i++){
-        int C = color();
-        int F = value();
+    for(int games = 0; games <= 999; games++){
+        printf("Would you like to play? (y/n)\t");
+        scanf("%c", &ans);
         
-        if(deck[c_back_to_n(C)][f_back_to_n(F)]==0){
-            if(F == 65 ||F == 88 || F == 74 || F == 81 || F == 75){
-                printf("[%c of %c]\n", F, C);
-                deck[c_back_to_n(C)][f_back_to_n(F)] = 1;
+        if(ans == 'y' || ans == 'Y'){
+            while(w == 1){
+                
+                
+                for(int i = 0; i <= 3; i++){
+                    int C = color();
+                    int F = value();
+                
+                    if(deck[c_back_to_n(C)][f_back_to_n(F)]==0){
+                        if(F == 65 ||F == 88 || F == 74 || F == 81 || F == 75){
+                            printf("\n[%c of %c]", F, C);
+                            deck[c_back_to_n(C)][f_back_to_n(F)] = 1;
+                        }
+                        else{
+                            printf("\n[%i of %c]", F, C);
+                            deck[c_back_to_n(C)][f_back_to_n(F)] = 1;
+                        }
+                    }
+                    else{
+                        i--;
+                    }
+                }
+                //scanf("%c", )
+                
+                
+                printf("\n\t\t\t || Your opponent has %i ||\n", opponent());
+                
+                printf("\n\nAnother game? (y/n)\t");
+                scanf("%c", &A);
+                if(A == 'y' || A == 'Y'){
+                    w = 1;
+                }
+                else{
+                    games = 1000;
+                }
             }
-            else{
-                printf("[%i of %c]\n", F, C);
-                deck[c_back_to_n(C)][f_back_to_n(F)] = 1;
-            }
+           
         }
-        else{
-            i--;
-        }
+            games = 1000;
     }
     
-    printf("\n\t\t\t || Your opponent has %i ||\n", opponent());
     
     return 0;
 }
