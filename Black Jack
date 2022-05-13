@@ -54,7 +54,7 @@ int f_back_to_n(int y){
 }
 
 int main() {
-    printf("\n\n\t\t\t    Welcome to Black Jack\n\n");
+    printf("\n\n\t\t\t || Welcome to Black Jack ||\n\n");
     int deck[4][13];
     
     for(int four = 0; four < 4; four++){
@@ -71,11 +71,11 @@ int main() {
         
         if(deck[c_back_to_n(C)][f_back_to_n(F)]==0){
             if(F == 65 ||F == 88 || F == 74 || F == 81 || F == 75){
-                printf("%c of %c\n", F, C);
+                printf("[%c of %c]\n", F, C);
                 deck[c_back_to_n(C)][f_back_to_n(F)] = 1;
             }
             else{
-                printf("%i of %c\n", F, C);
+                printf("[%i of %c]\n", F, C);
                 deck[c_back_to_n(C)][f_back_to_n(F)] = 1;
             }
         }
@@ -84,7 +84,7 @@ int main() {
         }
     }
     
-    printf("%i", opponent());
+    printf("\n\t\t\t || Your opponent has %i ||\n", opponent());
     
     return 0;
 }
