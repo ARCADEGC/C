@@ -54,6 +54,7 @@ int f_back_to_n(int y){
 }
 
 int main() {
+    printf("\n\n\t\t\t    Welcome to Black Jack\n\n");
     int deck[4][13];
     
     for(int four = 0; four < 4; four++){
@@ -64,7 +65,7 @@ int main() {
     
     srand(time(NULL));
     
-    for(int i = 0; i <= 40; i++){
+    for(int i = 0; i <= 10; i++){
         int C = color();
         int F = value();
         
