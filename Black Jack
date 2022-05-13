@@ -118,6 +118,11 @@ int main() {
                 printf("\n\nAnother game? (y/n)\t");
                 scanf("%c", &A);
                 if(A == 'y' || A == 'Y'){
+                    for(int four = 0; four < 4; four++){
+                        for(int thirteen = 0; thirteen < 13; thirteen++){
+                        deck[four][thirteen] = 0;
+                        }
+                    }
                     w = 1;
                     printf("\n________________________________________________________________________\n\n");
                 }
