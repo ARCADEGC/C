@@ -120,7 +120,7 @@ int main() {
                 
                 scanf(" %c", &con);
                 if(con == 'y' || con == 'Y'){
-                    for(int suc = 0; suc != 0;){
+                    for(int suc = 0; suc == 0;){
                         int C = color();
                         int F = value();
                         
@@ -140,8 +140,9 @@ int main() {
                                 printf("\n[%i of %c]", F, C);
                             }
                             deck[c_back_to_n(C)][f_back_to_n(F)] = 1;
-                            total = total + F_to_total(f_back_to_n(F));
+                            total += F_to_total(f_back_to_n(F));
                             suc = 1;
+                            printf("\n\nYour total: %i\n\n", total);
                         }
                     }
                 }
