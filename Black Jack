@@ -5,7 +5,7 @@
 #include <string.h>
 
 int opponent(){
-    int r = (rand() % 8) + 15;
+    int r = (rand() % 8) + 16;
     return r;
 }
 
