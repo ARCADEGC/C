@@ -65,7 +65,7 @@ int F_to_total(int t){
 int main() {
     char ans, A, con = '\0';
     int w = 1;
-    int total, ace, ace_true = 0;
+    int total, ace, ace_true, a = 0;
     printf("\n\n\t\t\t || Welcome to Black Jack ||\n\n");
     int deck[4][13];
     for(int four = 0; four < 4; four++){
@@ -114,36 +114,45 @@ int main() {
                             ace_true = 0;
                         }
                 
-                printf("\n\nYour total: %i\n\nWould you like to draw another card? (y/n)\t", total);
+                printf("\n\nYour total: %i\n\n", total);
                 
                 //
                 
-                scanf(" %c", &con);
-                if(con == 'y' || con == 'Y'){
-                    for(int suc = 0; suc == 0;){
-                        int C = color();
-                        int F = value();
-                        
-                        if(deck[c_back_to_n(C)][f_back_to_n(F)]==0){
-                            if(F == 65 ||F == 88 || F == 74 || F == 81 || F == 75){
-                                if(F == 65){
-                                    printf("\n\nWould you like your ace to be 1 or 11? (1/11)\t");
-                                    scanf("%i", &ace);
-                                    if(ace == 11){
-                                        total += 10;
-                                        ace = 0;
+                for(a = 0; a <= 8; a++){
+                    if(total > 21){
+                        break;
+                    }
+                    printf("Would you like to draw another card? (y/n)\t");
+                    scanf(" %c", &con);
+                    if(con == 'y' || con == 'Y'){
+                        for(int suc = 0; suc == 0;){
+                            int C = color();
+                            int F = value();
+                                
+                            if(deck[c_back_to_n(C)][f_back_to_n(F)]==0){
+                                if(F == 65 ||F == 88 || F == 74 || F == 81 || F == 75){
+                                    if(F == 65){
+                                        printf("\n\nWould you like your ace to be 1 or 11? (1/11)\t");
+                                        scanf("%i", &ace);
+                                        if(ace == 11){
+                                            total += 10;
+                                            ace = 0;
+                                        }
                                     }
+                                    printf("\n[%c of %c]", F, C);
                                 }
-                                printf("\n[%c of %c]", F, C);
+                                else{
+                                    printf("\n[%i of %c]", F, C);
+                                }
+                                deck[c_back_to_n(C)][f_back_to_n(F)] = 1;
+                                total += F_to_total(f_back_to_n(F));
+                                suc = 1;
+                                printf("\n\nYour total: %i\n\n", total);
                             }
-                            else{
-                                printf("\n[%i of %c]", F, C);
-                            }
-                            deck[c_back_to_n(C)][f_back_to_n(F)] = 1;
-                            total += F_to_total(f_back_to_n(F));
-                            suc = 1;
-                            printf("\n\nYour total: %i\n\n", total);
                         }
+                    }
+                    if(con == 'n' || con == 'N'){
+                        a = 9;
                     }
                 }
                 
