@@ -74,8 +74,7 @@ int main() {
         }
     }
     srand(time(NULL));
-
-        //start
+    
         printf("Would you like to play? (y/n)\t");
         scanf("%c", &ans);
         if(ans == 'y' || ans == 'Y'){
@@ -83,8 +82,6 @@ int main() {
             do{
                 printf("Your hand:\n");
                 total = 0;
-                
-                //first 2 cards
                 for(int i = 0; i <= 1; i++){
                     int C = color();
                     int F = value();
@@ -113,39 +110,37 @@ int main() {
                 printf("\n\nYour total: %i\n\nWould you like to draw another card? (y/n)\t", total);
                 
                 //
-                do{
-                    scanf("%c", &con);
-                    if(con == 'y' || con == 'Y'){
-                        int C = color();
-                        int F = value();
-                    
-                        if(deck[c_back_to_n(C)][f_back_to_n(F)]==0){
-                            if(F == 65 ||F == 88 || F == 74 || F == 81 || F == 75){
-                                if(F == 65){
-                                    printf("\n\nWould you like your ace to be 1 or 11? (1/11)\t");
-                                    scanf("%i", &ace);
-                                    if(ace == 11){
-                                        total += 10;
-                                        ace = 0;
-                                    }
+                
+                scanf("%c", &con);
+                if(con == 'y' || con == 'Y'){
+                    int C = color();
+                    int F = value();
+                
+                    if(deck[c_back_to_n(C)][f_back_to_n(F)]==0){
+                        if(F == 65 ||F == 88 || F == 74 || F == 81 || F == 75){
+                            if(F == 65){
+                                printf("\n\nWould you like your ace to be 1 or 11? (1/11)\t");
+                                scanf("%i", &ace);
+                                if(ace == 11){
+                                    total += 10;
+                                    ace = 0;
                                 }
-                                printf("\n[%c of %c]", F, C);
                             }
-                            else{
-                                printf("\n[%i of %c]", F, C);
-                            }
-                            deck[c_back_to_n(C)][f_back_to_n(F)] = 1;
-                            total = total + F_to_total(f_back_to_n(F));
+                            printf("\n[%c of %c]", F, C);
                         }
+                        else{
+                            printf("\n[%i of %c]", F, C);
+                        }
+                        deck[c_back_to_n(C)][f_back_to_n(F)] = 1;
+                        total = total + F_to_total(f_back_to_n(F));
                     }
-                }while(w == 1);
+                }
                 
                 //
                 
                 int opp = opponent();
                 printf("\n\n\t\t\t || Your opponent has %i ||\n", opp);
                 
-                // win/lose/draw
                 if(total == opp){
                     printf("\n\t\t\t\t || DRAW ||\n");
                 }
@@ -164,7 +159,6 @@ int main() {
                     }
                 }
                 
-                //another game
                 printf("\n\nAnother game? (y/n)\t");
                 scanf("%c", &A);
                 if(A == 'y' || A == 'Y'){
