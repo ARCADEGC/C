@@ -27,8 +27,8 @@ int color(){
         case 1: return r = 83;
         case 2: return r = 72;
         case 3: return r = 67;
+        default: return r = 68;
         }
-    return r = 68;
 }
 
 int c_back_to_n(int x){
