@@ -118,10 +118,9 @@ int main() {
                 
                 //
                 
-                scanf("%c", &con);
+                scanf(" %c", &con);
                 if(con == 'y' || con == 'Y'){
-                    
-                    for(int suc = 0; suc != 0; ){
+                    for(int suc = 0; suc != 0;){
                         int C = color();
                         int F = value();
                         
@@ -171,7 +170,7 @@ int main() {
                 }
                 
                 printf("\n\nAnother game? (y/n)\t");
-                scanf("%c", &A);
+                scanf(" %c", &A);
                 if(A == 'y' || A == 'Y'){
                     for(int four = 0; four < 4; four++){
                         for(int thirteen = 0; thirteen < 13; thirteen++){
