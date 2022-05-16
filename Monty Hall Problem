@@ -16,7 +16,7 @@ int main(){
     float per = 0;
     
     // i for amount generations
-    for(int i = 1; i <= 100; i++){
+    for(int i = 1; i <= 1000; i++){
         door = r();
         tip = r();
         
@@ -41,8 +41,8 @@ int main(){
         
         per = 0;
         per = (win / (float)i)*100;
-        // Your Pick for first pick / Empty door for the door that was empty, not wining and not choosen / Your Pick 2 for second pick that is different then the first pick / Win Door for door that has the trasure / WR for Win rate chance when switching your guess
-        printf("%c || Your Pick = %i || Empty door = %i || Your Pick 2 = %i || Win Door = %i || WR %.1f%% \n", winlose, tip, lostdoor, secondtip, door, per);
+        // Your Pick for first pick / Empty door for the door that was empty, not wining and not choosen / Your Pick 2 for second pick that is different than the first pick / Win Door for door that has the trasure / WR for Win rate chance when switching your guess
+        printf("%i) %c || Your Pick = %i || Empty door = %i || Your Pick 2 = %i || Win Door = %i || WR %.1f%% \n", i, winlose, tip, lostdoor, secondtip, door, per);
         winlose = 76;
     }
     
