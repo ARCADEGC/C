@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <math.h>
+#include <string.h>
+
+int r(){
+    return rand() % 3 + 1;
+}
+
+int main(){
+    srand(time(NULL));
+    int tip, door, win = 0;
+    int secondtip, lostdoor = 0;
+    char winlose = 76;
+    float per = 0;
+    
+    // i for amount generations
+    for(int i = 1; i <= 100; i++){
+        door = r();
+        tip = r();
+        
+        do{
+            lostdoor = r();
+        }while(lostdoor == tip && lostdoor == door);
+        
+        do{
+            secondtip = r();
+        }while(secondtip == tip && secondtip == lostdoor);
+        
+        if(tip == door){
+            win++;
+            winlose = 87;
+        }
+        else{
+            if(secondtip == door){
+                win++;
+                winlose = 87;
+            }
+        }
+        
+        per = 0;
+        per = (win / (float)i)*100;
+        // Your Pick for first pick / Empty door for the door that was empty, not wining and not choosen / Your Pick 2 for second pick that is different then the first pick / Win Door for door that has the trasure / WR for Win rate chance when switching your guess
+        printf("%c || Your Pick = %i || Empty door = %i || Your Pick 2 = %i || Win Door = %i || WR %.1f%% \n", winlose, tip, lostdoor, secondtip, door, per);
+        winlose = 76;
+    }
+    
+    return 0;
+}
