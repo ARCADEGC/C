@@ -22,13 +22,13 @@ int main(){
         
         do{
             lostdoor = r();
-        }while(lostdoor == tip && lostdoor == door);
+        }while(lostdoor == tip || lostdoor == door);
         
         do{
             secondtip = r();
-        }while(secondtip == tip && secondtip == lostdoor);
+        }while(secondtip == tip || secondtip == lostdoor);
         
-        if(tip == door){
+        if(secondtip == door){
             win++;
             winlose = 87;
         }
@@ -42,7 +42,7 @@ int main(){
         per = 0;
         per = (win / (float)i)*100;
         // Your Pick for first pick / Empty door for the door that was empty, not wining and not choosen / Your Pick 2 for second pick that is different than the first pick / Win Door for door that has the trasure / WR for Win rate chance when switching your guess
-        printf("%i) %c || Your Pick = %i || Empty door = %i || Your Pick 2 = %i || Win Door = %i || WR %.1f%% \n", i, winlose, tip, lostdoor, secondtip, door, per);
+        printf("%i) %c || Your Pick = %i || Empty door = %i || Your Pick 2 = %i || Win Door = %i || WR %.0f%% \n", i, winlose, tip, lostdoor, secondtip, door, per);
         winlose = 76;
     }
     
