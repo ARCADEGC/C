@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <math.h>
+#include <string.h>
+
+int inCircle(float circle[3], float point[2]){
+    circle[2] = abs(circle[2]);
+    float a = abs(circle[0] - point[0]);
+    float b = abs(circle[1] - point[1]);
+    float c = sqrt(pow(a, 2) + pow(b, 2));
+    if(circle[2] >= c){
+        return 1;
+    }
+    else{
+    return 0;
+    }
+}
+
+int main() {
+    // x, y, r
+    float circle[3] = {0, 0, 0};
+    // x, y
+    float point[2] = {0, 0};
+
+    int c = inCircle(circle, point);
+
+    if(c == 1){
+        printf("Yes");
+    }
+    else{
+        printf("No");
+    }
+    
+    return 0;
+}
